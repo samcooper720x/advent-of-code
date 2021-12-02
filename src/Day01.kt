@@ -1,11 +1,12 @@
 fun main() {
-    fun part1(input: List<Int>): Int {
-        return input.zipWithNext().fold(0) { increases, depths -> if (depths.first < depths.second) increases + 1 else increases }
-    }
+    fun part1(input: List<Int>): Int = input
+        .zipWithNext()
+        .fold(0) { increases, depths -> if (depths.first < depths.second) increases + 1 else increases }
 
-    fun part2(input: List<Int>): Int {
-        return input.windowed(3).zipWithNext().fold(0) { increases, depths -> if (depths.first.sum() < depths.second.sum()) increases + 1 else increases }
-    }
+    fun part2(input: List<Int>): Int = input
+        .windowed(3)
+        .zipWithNext()
+        .fold(0) { increases, depths -> if (depths.first.sum() < depths.second.sum()) increases + 1 else increases }
 
     // test if implementation meets criteria from the description, like:
     val testInput = readInputAsInts("Day01_test")
